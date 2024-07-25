@@ -1,10 +1,21 @@
-/**
-* Template Name: MyResume
-* Updated: Jan 09 2024 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+// Function to check the user's system preference and apply the corresponding theme
+function applyThemeBasedOnSystemPreference() {
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (prefersDarkScheme) {
+      document.body.classList.add("dark-mode");
+  } else {
+      document.body.classList.remove("dark-mode");
+  }
+}
+
+// Apply the theme when the page loads
+applyThemeBasedOnSystemPreference();
+
+// Listen for changes in the user's system preference
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+  applyThemeBasedOnSystemPreference();
+});
+
 (function() {
   "use strict";
 

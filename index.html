@@ -704,7 +704,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="https://formspree.io/f/mkgwbwdo" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -777,6 +777,46 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!--Email Script-->
+  <script>
+  document.querySelector('.php-email-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let form = this;
+    let loading = form.querySelector('.loading');
+    let errorMessage = form.querySelector('.error-message');
+    let sentMessage = form.querySelector('.sent-message');
+
+    let formData = new FormData(form);
+
+    loading.style.display = 'block';
+    errorMessage.style.display = 'none';
+    sentMessage.style.display = 'none';
+
+    fetch(form.getAttribute('action'), {
+        method: form.getAttribute('method'),
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+        loading.style.display = 'none';
+        if (data.ok) {
+            sentMessage.style.display = 'block';
+            form.reset();
+        } else {
+            throw new Error(data.error || 'Something went wrong.');
+        }
+    })
+    .catch(error => {
+        loading.style.display = 'none';
+        errorMessage.textContent = error.message;
+        errorMessage.style.display = 'block';
+    });
+});
+
+</script>
 
 </body>
 

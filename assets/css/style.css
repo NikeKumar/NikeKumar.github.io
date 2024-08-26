@@ -468,7 +468,7 @@ section {
   font-size: 36px;
   display: block;
   font-weight: 600;
-  color: #011426;
+  color: #97c0e7;
 }
 
 .facts .count-box p {
@@ -765,7 +765,18 @@ section {
   padding: 30px;
   box-shadow: 0px 0 30px rgba(69, 80, 91, 0.08);
 }
-
+.portfolio-details .awards-info h6{
+  font-size: 16px;
+  color: #ffffff;
+}
+.portfolio-details .awards-info h3{
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  color: #0563bb;
+}
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
   font-weight: 700;
